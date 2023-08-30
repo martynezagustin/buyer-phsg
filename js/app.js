@@ -41,7 +41,7 @@ window.onload = loadBuyer
 btnSubmit.addEventListener("click", (e) => {
     e.preventDefault()
     if (inputName.value == "" || inputLastName.value == "" || inputAge.value == "" || inputTastes.value == "" || inputRRSS.value == "") {
-        alert("Por favor Ivo. Ingresá datos válidos!")
+        alert("Por favor, Ivo, chequeá los campos vacíos!")
     } else {
         const pf = document.getElementById("grid-dates__name-p")
         pf.innerHTML = `${inputName.value} ${inputLastName.value}`
