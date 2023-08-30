@@ -1,0 +1,129 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+.philio-icon{
+    width: 25%;
+}
+.navbar{
+    background: linear-gradient(to left, hotpink, violet)!important;
+}
+body{
+    font-family: 'Lexend Deca', sans-serif;
+}
+.formInput{
+    padding: 10px;
+}
+.container-principal{
+    display: flex;
+}
+.insert-dates{
+    max-width: 100%;
+    width: 45%;
+}
+input{
+    border: none;
+    border-radius: 5px;
+    border-bottom: 2px solid royalblue;
+    width: 100%;
+    font-weight: 800;
+    color: blueviolet;
+    padding: 10px;
+}
+.btn-submit{
+    background-color: blueviolet;
+    color: whitesmoke;
+    border: none;
+    margin-top: 0.4rem;
+    padding: 0.2rem;
+    border-radius: 5px;
+}
+.grid-dates{
+    display: grid;
+    grid-template-areas: "nameLastname age tastes"
+                         "rrss         rrss ubication";
+    grid-template-columns: 6fr 3fr 12fr;
+    grid-template-rows: 155px 155px 155px;
+    margin: 1rem;
+}
+.grid-dates>div{
+    border-radius: 10px;
+    padding: 0.3rem;
+    background-color: blueviolet;
+    color: whitesmoke;
+    max-width: 100%;
+    font-weight: 800;
+    margin: 0.2rem;
+    box-shadow: 0px 0px 12px 1px lightslategray;
+}
+.grid-dates>div:hover{
+    background-color: hotpink;
+    color: black;
+    transition: .3s all;
+}
+.grid-dates__name{
+    grid-area: nameLastname;
+    word-wrap: break-word;
+    width: 200px;
+}
+.grid-dates__name-p{
+    word-wrap: break-word;
+}
+.grid-dates__age{
+    grid-area: age;
+    word-wrap: break-word;
+}
+.grid-dates__tastes{
+    grid-area: tastes;
+    word-wrap: break-word;
+    width: 400px;
+}
+.grid-dates__rrss{
+    grid-area: rrss;
+    word-wrap: break-word;
+    width: 305px;
+}
+.grid-dates__ubication{
+    grid-area: ubication;
+    word-wrap: break-word;
+    max-width: 100%;
+    width: 400px;
+}
+
+
+@media screen and (max-width: 850px) {
+    .container-principal{
+        flex-direction: column;
+    }
+    .insert-dates{
+        width: 100%;
+    }
+    .grid-dates{
+        grid-template-areas: "nameLastname" 
+                             "age" 
+                             "tastes" 
+                             "rrss"
+                             "ubication";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        margin: 1rem;
+    }
+    .grid-dates>div{
+        width: 100%;
+    }
+    .grid-dates__name{
+        grid-area: nameLastname;
+    }
+    .grid-dates__name-p{
+        word-wrap: break-word;
+    }
+    .grid-dates__tastes-decoration{
+        text-decoration: line-through;
+    }
+    .grid-dates__rrss{
+        grid-area: rrss;
+    }
+    .grid-dates__ubication{
+        grid-area: ubication;
+    }
+}
