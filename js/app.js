@@ -40,7 +40,7 @@ window.onload = loadBuyer
 
 btnSubmit.addEventListener("click", (e) => {
     e.preventDefault()
-    if (inputName.value == "" || inputLastName.value == "" || inputAge.value == "" || inputTastes.value == "" || inputRRSS.value == "") {
+    if (inputName.value == "" || inputLastName.value == "" || inputAge.value == "" || inputTastes.value == "" || inputRRSS.value == "" || inputUbication.value == "") {
         alert("Por favor, Ivo, chequeá los campos vacíos!")
     } else {
         const pf = document.getElementById("grid-dates__name-p")
