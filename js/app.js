@@ -38,7 +38,8 @@ function loadBuyer(){
 
 window.onload = loadBuyer
 
-btnSubmit.addEventListener("click", () => {
+btnSubmit.addEventListener("click", (e) => {
+    e.preventDefault()
     if (inputName.value == "" || inputLastName.value == "" || inputAge.value == "" || inputTastes.value == "" || inputRRSS.value == "") {
         alert("Por favor Ivo. Ingresá datos válidos!")
     } else {
