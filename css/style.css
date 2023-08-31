@@ -7,7 +7,7 @@
     display: grid;
     grid-template: "header " auto
         "section" auto
-        "footer" 100px /
+        "footer" auto /
         100%;
 }
 
@@ -127,6 +127,7 @@ input {
     grid-area: footer;
     background-color: hotpink;
     display: flex;
+    padding: 1rem;
     flex-direction: column;
     justify-content: center;
 }
