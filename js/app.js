@@ -5,17 +5,13 @@ const inputAge = document.querySelector("#age")
 const inputTastes = document.querySelector("#tastes")
 const inputRRSS = document.querySelector("#rrss")
 const inputUbication = document.querySelector("#ubication")
-
-const getFullName = document.querySelector(".grid-dates__name")
-const getAge = document.querySelector(".grid-dates__age")
-const getTastes = document.querySelector(".grid-dates__tastes")
-const getRRSS = document.getElementById("grid-dates__rrss")
+const inputActivities = document.querySelector("#activities")
 
 let datesBuyer = JSON.parse(localStorage.getItem("buyer")) || {}
 let datesBuyerLength = (Object.keys(datesBuyer).length)
 
 function loadBuyer(){
-    if(datesBuyerLength > 5){
+    if(datesBuyerLength > 6){
         const pf = document.getElementById("grid-dates__name-p")
         pf.innerHTML = `${datesBuyer.name} ${datesBuyer.lastname}`
 
@@ -32,6 +28,9 @@ function loadBuyer(){
 
         const pfUbication = document.getElementById("grid-dates__ubication-p")
         pfUbication.innerText = datesBuyer.ubication
+
+        const pfActivities = document.getElementById("grid-dates__activities-p")
+        pfActivities.innerText = datesBuyer.activities
     }
 }
 
@@ -58,13 +57,17 @@ btnSubmit.addEventListener("click", (e) => {
         const pfUbication = document.getElementById("grid-dates__ubication-p")
         pfUbication.innerText = inputUbication.value
 
+        const pfActivities = document.getElementById("grid-dates__activities-p")
+        pfActivities.innerText = inputActivities.value
+
         datesBuyer = ({
             name: inputName.value,
             lastname: inputLastName.value,
             age: inputAge.value,
             tastes: inputTastes.value,
             rrss: inputRRSS.value,
-            ubication: inputUbication.value
+            ubication: inputUbication.value,
+            activities: inputActivities.value
         })
         console.log(Object.keys(datesBuyer).length);
         localStorage.setItem("buyer", JSON.stringify(datesBuyer))

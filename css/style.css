@@ -15,11 +15,12 @@ body{
     padding: 10px;
 }
 .container-principal{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto;
 }
 .insert-dates{
     max-width: 100%;
-    width: 45%;
 }
 input{
     border: none;
@@ -41,9 +42,11 @@ input{
 .grid-dates{
     display: grid;
     grid-template-areas: "nameLastname age tastes"
-                         "rrss         rrss ubication";
+                         "rrss         rrss ubication"
+                         "activities activities activities";
     grid-template-columns: 6fr 3fr 12fr;
-    grid-template-rows: 155px 155px 155px;
+    grid-template-rows: 155px 155px 200px;
+    grid-gap: 0.4rem;
     margin: 1rem;
 }
 .grid-dates>div{
@@ -51,20 +54,19 @@ input{
     padding: 0.3rem;
     background-color: rgb(19, 19, 155);
     color: whitesmoke;
-    max-width: 100%;
+    width: 100%;
     font-weight: 800;
-    margin: 0.2rem;
     box-shadow: 0px 0px 12px 1px lightslategray;
 }
 .grid-dates>div:hover{
     background-color: lightskyblue;
     color: black;
     transition: .3s all;
+    transform: scale(1.02, 1.02);
 }
 .grid-dates__name{
     grid-area: nameLastname;
     word-wrap: break-word;
-    width: 200px;
 }
 .grid-dates__name-p{
     word-wrap: break-word;
@@ -76,24 +78,25 @@ input{
 .grid-dates__tastes{
     grid-area: tastes;
     word-wrap: break-word;
-    width: 400px;
 }
 .grid-dates__rrss{
     grid-area: rrss;
     word-wrap: break-word;
-    width: 305px;
 }
 .grid-dates__ubication{
     grid-area: ubication;
     word-wrap: break-word;
-    max-width: 100%;
-    width: 400px;
+}
+.grid-dates__activities{
+    grid-area: activities;
 }
 
 
 @media screen and (max-width: 850px) {
     .container-principal{
-        flex-direction: column;
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: auto;
     }
     .insert-dates{
         width: 100%;
@@ -103,7 +106,8 @@ input{
                              "age" 
                              "tastes" 
                              "rrss"
-                             "ubication";
+                             "ubication"
+                             "activities";
         grid-template-columns: 1fr;
         grid-template-rows: auto;
         margin: 1rem;
@@ -125,5 +129,8 @@ input{
     }
     .grid-dates__ubication{
         grid-area: ubication;
+    }
+    .grid-dates__activities{
+        grid-area: activities;
     }
 }
