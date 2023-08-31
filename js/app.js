@@ -7,30 +7,25 @@ const inputRRSS = document.querySelector("#rrss")
 const inputUbication = document.querySelector("#ubication")
 const inputActivities = document.querySelector("#activities")
 
+const nameDate = document.querySelector("#grid-dates__name-p")
+const ageDate = document.querySelector("#grid-dates__age-p")
+const tastesDate = document.querySelector("#grid-dates__tastes-ul")
+const RRSSDate = document.querySelector("#grid-dates__rrss-p")
+const ubicationDate = document.querySelector("#grid-dates__ubication-p")
+const activitiesDate = document.querySelector("#grid-dates__activities-p")
+
 let datesBuyer = JSON.parse(localStorage.getItem("buyer")) || {}
 let datesBuyerLength = (Object.keys(datesBuyer).length)
 
 function loadBuyer(){
     if(datesBuyerLength > 6){
-        const pf = document.getElementById("grid-dates__name-p")
-        pf.innerHTML = `${datesBuyer.name} ${datesBuyer.lastname}`
-
-        const pfAge = document.getElementById("grid-dates__age-p")
-        pfAge.innerText = parseInt(datesBuyer.age)
-
-        const uli = document.getElementById("grid-dates__tastes-ul")
-        const listita = document.createElement("li")
-        listita.innerText = datesBuyer.tastes
-        uli.appendChild(listita)
-
-        const pfRRSS = document.getElementById("grid-dates__rrss-p")
-        pfRRSS.innerHTML = `${datesBuyer.rrss}`
-
-        const pfUbication = document.getElementById("grid-dates__ubication-p")
-        pfUbication.innerText = datesBuyer.ubication
-
-        const pfActivities = document.getElementById("grid-dates__activities-p")
-        pfActivities.innerText = datesBuyer.activities
+        inputName.value = datesBuyer.name || ""
+        inputLastName.value = datesBuyer.lastname || ""
+        inputAge.value = datesBuyer.age || ""
+        inputTastes.value = datesBuyer.tastes || ""
+        inputRRSS.value = datesBuyer.rrss || ""
+        inputUbication.value = datesBuyer.ubication || ""
+        inputActivities.value = datesBuyer.activities || ""
     }
 }
 
@@ -42,24 +37,6 @@ btnSubmit.addEventListener("click", (e) => {
     if (inputName.value == "" || inputLastName.value == "" || inputAge.value == "" || inputTastes.value == "" || inputRRSS.value == "" || inputUbication.value == "") {
         alert("Por favor, Ivo, chequeá los campos vacíos!")
     } else {
-        const pf = document.getElementById("grid-dates__name-p")
-        pf.innerHTML = `${inputName.value} ${inputLastName.value}`
-
-        const pfAge = document.getElementById("grid-dates__age-p")
-        pfAge.innerText = parseInt(inputAge.value)
-
-        const uli = document.getElementById("grid-dates__tastes-ul")
-        uli.innerHTML = `<li>${inputTastes.value}</li>`
-
-        const pfRRSS = document.getElementById("grid-dates__rrss-p")
-        pfRRSS.innerText = inputRRSS.value
-
-        const pfUbication = document.getElementById("grid-dates__ubication-p")
-        pfUbication.innerText = inputUbication.value
-
-        const pfActivities = document.getElementById("grid-dates__activities-p")
-        pfActivities.innerText = inputActivities.value
-
         datesBuyer = ({
             name: inputName.value,
             lastname: inputLastName.value,
@@ -69,7 +46,20 @@ btnSubmit.addEventListener("click", (e) => {
             ubication: inputUbication.value,
             activities: inputActivities.value
         })
-        console.log(Object.keys(datesBuyer).length);
         localStorage.setItem("buyer", JSON.stringify(datesBuyer))
+        setDates()
+        loadBuyer()
     }
 })
+
+function setDates(){
+    nameDate.innerHTML = `${inputName.value} ${inputLastName.value}`
+    ageDate.innerHTML = `${inputAge.value}`
+    tastesDate.innerHTML = `<li>${inputTastes.value}</li>`
+    RRSSDate.innerHTML = `${inputRRSS.value}`
+    ubicationDate.innerHTML = `${inputUbication.value}`
+    activitiesDate.innerHTML = `${inputActivities.value}`
+}
+
+
+loadBuyer()
