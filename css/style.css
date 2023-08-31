@@ -67,7 +67,7 @@ input {
         "rrss         rrss ubication"
         "activities activities activities";
     grid-template-columns: 6fr 3fr 12fr;
-    grid-template-rows: 155px 155px 200px;
+    grid-template-rows: 155px 155px auto;
     grid-gap: 0.4rem;
     margin: 1rem;
 }
