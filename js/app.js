@@ -26,6 +26,7 @@ function loadBuyer(){
         inputRRSS.value = datesBuyer.rrss || ""
         inputUbication.value = datesBuyer.ubication || ""
         inputActivities.value = datesBuyer.activities || ""
+        setDates()
     }
 }
 
